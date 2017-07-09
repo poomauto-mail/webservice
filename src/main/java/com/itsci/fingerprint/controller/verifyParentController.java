@@ -40,7 +40,7 @@ public class verifyParentController {
 		System.out.println(student.getStudentID()+" findStudent");
 		if(student.getParentPhone() != null){
 			parent.setTitle("");
-			//result +=" "+ pm.insertParent(parent);
+			result +=" "+ pm.insertParent(parent);
 			lastPerson = psm.getLastPerson();
 			System.out.println(lastPerson+" last");
 			parent.setPersonID(lastPerson);

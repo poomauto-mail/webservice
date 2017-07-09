@@ -20,9 +20,6 @@ public class Student extends Person {
 	private long studentID;
 	private String encodeID;
 	private String parentPhone;// NEW ADD
-	
-	@OneToOne(/*fetch = FetchType.EAGER*/)
-	//@JoinColumn(name="personID")
 	private Parent parent;// NEW ADD
 
 	public Student() {
@@ -33,7 +30,7 @@ public class Student extends Person {
 		super(title, firstName, lastName, fingerprintID);
 		this.studentID = studentID;
 	}
-	///////////////////////////////// NEW ADD///////////////////////////////
+	//************************* NEW ADD**************************//
 	public String getParentPhone() {
 		return parentPhone;
 	}
@@ -42,7 +39,8 @@ public class Student extends Person {
 		this.parentPhone = parentPhone;
 	}
 	
-	
+	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinColumn(name="parent")
 	public Parent getParent() {
 		return parent;
 	}
@@ -50,8 +48,7 @@ public class Student extends Person {
 	public void setParent(Parent parent) {
 		this.parent = parent;
 	}
-
-	///////////////////////////////// NEW ADD///////////////////////////////
+	//************************* NEW ADD**************************//
 	@Column(unique = true)
 	public long getStudentID() {
 		return studentID;
